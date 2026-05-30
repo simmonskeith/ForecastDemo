@@ -15,12 +15,12 @@ type ForecastListProps = {
 
 export function ForecastList(props: ForecastListProps) {
     return (
-        <table>
-            {props.forecast['properties']['periods'].map((item) => 
+        <table data-testid="forecast-table">
             <tbody>
-                <ForecastPeriod period={item} />
+                {props.forecast['properties']['periods'].map((item) => 
+                    <ForecastPeriod period={item} />
+                )}
             </tbody>
-        )}
         </table>
     )
 }

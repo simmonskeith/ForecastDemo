@@ -1,0 +1,9 @@
+services:
+  React-Utility:
+    build: 
+      context: .
+      dockerfile: dockerfile.production
+    image: forecast-demo-image
+    container_name: forecast-demo
+    ports:
+      - "3000:3000"

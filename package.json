@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "test:e2e": "npx playwright test --workers=2",
+    "test:e2e:chromium": "npx playwright test --project=chromium --workers=2",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
   },

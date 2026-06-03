@@ -62,7 +62,7 @@ export function ForecastWrapper() {
     
     return (
             
-            <div>
+            <div data-testid="forecast-wrapper">
                 <input type="text" placeholder="Enter Zip Code" onChange={(e) => setTempZipCode(e.target.value)} />
                 <button onClick={updateZip} disabled={!isValidZip(tempZipCode)}>Get Forecast</button>
                 <h2>Weather Forecast</h2>

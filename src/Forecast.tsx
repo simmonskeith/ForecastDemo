@@ -18,8 +18,8 @@ export function Forecast(props: ForecastProps) {
             setForecast(null);
             const requestUrl = `https://api.weather.gov/points/${props.location.latitude},${props.location.longitude}`
             const forecastResponse = await fetch(requestUrl, { method: 'GET'});
-            var boxResponse = await forecastResponse.json();
-            var boxForecast = await fetch(boxResponse['properties']['forecast'], { method: 'GET'});
+            const boxResponse = await forecastResponse.json();
+            const boxForecast = await fetch(boxResponse['properties']['forecast'], { method: 'GET'});
             const forecastJson = await boxForecast.json();
             setForecast(forecastJson);
         }

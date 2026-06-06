@@ -15,6 +15,10 @@ export function ForecastWrapper() {
     const [location, setLocation] = React.useState<Location>(null);
     const [zipCode, setZipCode] = React.useState("");
     const [tempZipCode, setTempZipCode] = React.useState("");
+
+    const isValidZip = (zip: string) => {
+        return zip.length === 5 && Number.isFinite(Number(zip));
+    }
     
     React.useEffect(() => {
 
@@ -54,10 +58,6 @@ export function ForecastWrapper() {
         if (isValidZip(tempZipCode)) {
             setZipCode(tempZipCode);
         }
-    }
-
-    const isValidZip = (zip: string) => {
-        return zip.length === 5 && Number.isFinite(Number(zip));
     }
     
     return (

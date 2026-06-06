@@ -96,4 +96,32 @@ describe('ForecastWrapper', () => {
     await user.click(button);
     expect(screen.getByText('Please enter a valid zip code to get the forecast.')).toBeInTheDocument();
   });
+
+
+  it('handles unsuccessful zip code lookup', async () => {
+    const user = userEvent.setup();
+    fetchMock.mockResolvedValueOnce({
+      status: 500,
+      json: async () => ({ places: null }),
+    });
+
+    render(<ForecastWrapper />);
+    const input = screen.getByPlaceholderText('Enter Zip Code');
+    await user.type(input, '10001');
+    const button = screen.getByRole('button', { name: 'Get Forecast' });
+    await user.click(button);
+    expect(screen.getByText('Please enter a valid zip code to get the forecast.')).toBeInTheDocument();
+  });
+
+  it('handles errors during zip code fetch', async () => {
+    const user = userEvent.setup();
+    fetchMock.mockRejectedValueOnce(new Error('Network error'));
+
+    render(<ForecastWrapper />);
+    const input = screen.getByPlaceholderText('Enter Zip Code');
+    await user.type(input, '10001');
+    const button = screen.getByRole('button', { name: 'Get Forecast' });
+    await user.click(button);
+    expect(screen.getByText('Please enter a valid zip code to get the forecast.')).toBeInTheDocument();
+  });
 });

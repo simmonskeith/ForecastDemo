@@ -8,10 +8,10 @@ Includes unit tests and Playwright end-to-end tests as well as Docker containeri
 
 ### Useful Commands
 
-`npm run test` - runs the unit tests
-`npm run test:e2e` - runs the Playwright tests
-`npm run dev` - runs the app
+`npm run test` - runs the unit tests  
+`npm run test:e2e` - runs the Playwright tests  
+`npm run dev` - runs the app  
 
-`docker compose up -d` - run the app in a Docker container
-`docker compose down` - stop the docker container
+`docker compose up -d` - run the app in a Docker container  
+`docker compose down` - stop the docker container  
 
